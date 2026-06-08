@@ -88,14 +88,14 @@ class DigitalTwin:
         self.feature_buffer.append(scaled[0])
         pred_lstm = None
 
-        if len(self.feature_buffer) == self.timesteps:
+        if self.lstm is not None and len(self.feature_buffer) == self.timesteps:
             seq = np.array(self.feature_buffer).reshape(
                 1, self.timesteps, len(FEATURES))
             pred_lstm_s = self.lstm.predict(seq, verbose=0)[0][0]
             pred_lstm = float(
                 self.scaler_y.inverse_transform([[pred_lstm_s]])[0][0])
-
         # Use LSTM if available, else fall back to Lasso
+
         primary_pred = pred_lasso
         self.prediction_history.append(primary_pred)
 
