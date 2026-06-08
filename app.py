@@ -25,8 +25,7 @@ def load_all():
     elastic = joblib.load("model/elastic.pkl")
     scaler_X = joblib.load("model/scaler_X.pkl")
     scaler_y = joblib.load("model/scaler_y.pkl")
-    lstm = load_model("model/lstm.keras")
-    return lasso, elastic, scaler_X, scaler_y, lstm
+    return lasso, elastic, scaler_X, scaler_y, None
 
 
 lasso, elastic, scaler_X, scaler_y, lstm = load_all()

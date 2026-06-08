@@ -1,7 +1,7 @@
 pandas
 numpy
 scikit-learn
-keras
+
 streamlit
 plotly
 joblib
